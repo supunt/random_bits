@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings_test.json" />
+    <None Remove="appsettings_test_invalid.json" />
+    <None Remove="UnitTestFiles\LP_210095893_20150901T011608049.csv" />
+    <None Remove="UnitTestFiles\LP_AllZeros.csv" />
+    <None Remove="UnitTestFiles\LP_Big.csv" />
+    <None Remove="UnitTestFiles\TOU_1.csv" />
+    <None Remove="UnitTestFiles\TOU_2.csv" />
+    <None Remove="UnitTestFiles\TOU_3.csv" />
+    <None Remove="UnitTestFiles\TOU_4.csv" />
+    <None Remove="UnitTestFiles\TOU_5.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings_test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings_test_invalid.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\LP_210095893_20150901T011608049.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\LP_Big.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\LP_AllZeros.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\TOU_1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\TOU_2.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\TOU_3.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\TOU_4.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UnitTestFiles\TOU_5.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FileAnalyzer\FileAnalyzer.csproj" />
+  </ItemGroup>
+
+</Project>

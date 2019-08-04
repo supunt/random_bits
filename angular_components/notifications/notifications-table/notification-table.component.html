@@ -1,0 +1,76 @@
+<div class="rorc-t8 float-right primay-text">
+  <i class="fa fa-refresh"></i>
+  <a class="primay-text" href="javascript:void(0)" (click)="Refresh()"> Refresh</a>
+</div>
+<table class="rorc-table no-borders rorc-t8">
+  <thead>
+    <th>ID #</th>
+    <th>Received</th>
+    <th>Subject</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="notifications?.length > 0; else noNotifications">
+      <ng-container *ngFor="let item of notifications; let i = index">
+        <tr class='rorc-t8-cell' (click)="OpenNotification(item)" [ngClass]=" {
+                                'font-weight-bold' : IsUnread(item),
+                                'no-borders-row-selected': selectedNotification && selectedNotification.code == item.code
+                              }">
+          <td style="width:10%">{{item.code}}</td>
+          <!-- <td style="width:10%">{{item.dateCreated | date:'d/MM/y'}}</td> -->
+
+          <td style="width:10%">{{dateFromSimpleString(item.dateCreated) | date:'d/MM/y'}}</td>
+          <td style="width:60%">{{item.subject}}</td>
+          <td style="width:20%">{{GetStatusString(item)}}</td>
+        </tr>
+        <!-- container for details -->
+        <ng-container *ngIf="selectedNotification && selectedNotification.code == item.code">
+          <tr class="no-borders-row-expansion">
+            <td colspan="4">
+              <!-- This is a string check on each and every option in NotificationTyoe enum -->
+
+              <!-- If Message type notification -->
+              <ror-message-notification *ngIf="selectedNotification?.actionCode == 'MESSAGE'" (notificationClosed)="OnNotificationClosed()"
+                [model]=item></ror-message-notification>
+
+              <!-- If foobar ownership type notification -->
+              <ror-foobar-ownership-notification *ngIf="selectedNotification?.actionCode == 'foobar_OWNERSHIP'"
+                (notificationClosed)="OnNotificationClosed()" (notificationActioned)="OnNotificationActioned(selectedNotification, $event)"
+                [model]=item></ror-foobar-ownership-notification>
+
+              <!-- If Change of Share % type notification -->
+              <ror-change-share-notification *ngIf="selectedNotification?.actionCode == 'otherfoobar_SHARE_CONFIRM' || selectedNotification?.actionCode == 'foobar_SHARE_CONFIRM'"
+                (notificationClosed)="OnNotificationClosed()" [model]=item></ror-change-share-notification>
+
+              <!-- for foobar transfer ownership -->
+              <ror-foobar-transfer-ownership *ngIf="selectedNotification?.actionCode == 'otherfoobar_TRANSFER_OUTGOING_CONFIRM' || selectedNotification?.actionCode == 'otherfoobar_TRANSFER_INCOMING_MO_CONFIRM'
+                       || selectedNotification?.actionCode == 'foobar_TRANSFER_OUTGOING_CONFIRM' || selectedNotification?.actionCode == 'foobar_TRANSFER_INCOMING_MO_CONFIRM'"
+                (notificationClosed)="OnNotificationClosed()" [model]=item></ror-foobar-transfer-ownership>
+
+              <!-- If foobar Registration Type Notification -->
+              <ror-foobar-reg-notification *ngIf="selectedNotification?.actionCode == 'foobar_REG_SHARE_CONFIRM'"
+                (notificationClosed)="OnNotificationClosed()" [model]=item></ror-foobar-reg-notification>
+
+            </td>
+          </tr>
+
+          <!-- (notificationActioned)="OnNotificationActionedCustom(selectedNotification, $event)"   -->
+        </ng-container>
+
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noNotifications>
+      <tr *ngIf="isLoading" style="pointer-events:none">
+        <td colspan="4">
+          Loading ... <i class="fa fa-spinner fa-spin ror-2fa-loading-spinner"></i>
+        </td>
+      </tr>
+      <tr *ngIf="!isLoading" style="pointer-events:none">
+        <td colspan="4">
+          {{EmptyTableString()}}
+        </td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>

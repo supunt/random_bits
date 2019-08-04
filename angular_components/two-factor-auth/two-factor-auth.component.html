@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h4 class="modal-title">2-Factor Authentication (2FA)</h4>
+    <button *ngIf="isModal" type="button" class="close modal-close" aria-label="Close" (click)="Cancal2FA()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div *ngIf="TwoFactorError" class='alert-danger mt-2 rounded'>{{TwoFactorErrorMessage}}</div>
+    <div *ngIf="message !== ''">
+        <h4 class="ror-2fa-heading-text">Reason</h4>
+        <div>{{message}}</div>
+    </div>
+    <hr *ngIf="message !== ''">
+    <div *ngIf="requesting; else verification">
+        <h4 class="ror-2fa-heading-text">Why do we use 2 factor authentication (2FA)?</h4>
+        <div>foobar Australia is using 2 factor authentication to protect your account from un-authorised activity.</div>
+        <div>Your account is much more secure if we use 2 independent message mediums to verify that it is you changing your account.</div>
+        <br>
+        <div>You will not have to do this every time, as we only request 2FA if you want to change critical information (password,
+            mobile number, email address, etc) so it’s not intrusive. </div>
+        <div>Once your account is all set up and you have your ID and password we don’t need additional verification points.</div>
+    </div>
+    <ng-template #verification>
+        <h4 class="ror-2fa-heading-text">Verification code issued</h4>
+        <div>We have sent you message that includes a 6 character numeric verification code via your nominated method (txt or
+            email) and you should receive it within the next few minutes.</div>
+        <div>Enter the unique code in the below, then click proceed.</div>
+        <br>
+        <div>If, after a few minutes, you have not received the message click the re-send.</div>
+        <div>If it still fails, please contact the foobar Australia Service Centre via the <a routerLink='/contactus' target="_blank">contact us page</a> to resolve the issue</div>
+    </ng-template>
+    <hr>
+
+    <div *ngIf="requesting; else submitting">
+        <div class="form-group">
+            <form [formGroup]="twoFactorForm">
+                <div>
+                    <h4 class="ror-2fa-heading-text">Select Authentication Option</h4>
+                    <i *ngIf="isLoading" class="fa fa-spinner fa-spin ror-2fa-loading-spinner"></i>
+                </div>
+                <ror-select [data]="ddl2FaOptions" optionName="name" optionValue="value" formControlName="ddlOptions" key=""></ror-select>
+
+            </form>
+        </div>
+        <button type="button" [disabled]="requestDisabled" class="rorc-button-primary rorc-button-block rorc-button-sm" (click)="Requets2FACode()">Request Code</button>
+    </div>
+    <ng-template #submitting>
+        <div>
+            <div class="form-group">
+                <form [formGroup]="twoFactorForm">
+                    <div>
+                        <h4 class="ror-2fa-heading-text">Enter the received code</h4>
+                        <ror-number formControlName="twoFactorCode" key=""></ror-number>
+                        <span class="ror-resend-text"><a href="javascript:void(0)" (click)="Requets2FACode()">Resend</a></span>
+                    </div>
+                </form>
+            </div>
+            <button type="button" [disabled]="validateDisabled" class="rorc-button-primary rorc-button-block rorc-button-sm" (click)="Validate2FACode()">Submit Code</button>
+        </div>
+    </ng-template>
+</div>

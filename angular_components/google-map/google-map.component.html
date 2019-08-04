@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-12 map-container">
+      <agm-map 
+      [latitude]="location.lat" 
+      [longitude]="location.lng" 
+      [(zoom)]="location.zoom" 
+      [disableDefaultUI]="false"
+      [zoomControl]="true" 
+      [fitBounds]="location.viewport">
+      <agm-marker 
+        [latitude]="location.lat"
+        [longitude]="location.lng"
+        [agmFitBounds]="true"></agm-marker>
+    </agm-map>
+  </div>
+</div>

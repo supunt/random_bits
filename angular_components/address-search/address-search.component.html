@@ -1,0 +1,11 @@
+<div class="tip">
+  <span *ngIf="toolTip" class="p-2">{{toolTip}}</span>
+  <form [formGroup]="formGroup">
+    <ror-textbox key="addressSearch" class="rorc-t6" formControlName="addressSearch" placeholder="Keep typing the address" key="addressSearch">
+      <i *ngIf="isLoading" class="fa fa-spinner  fa-spin ror-search-spinner"></i>
+      <ul class="list-group ror-search-group" *ngIf="showSearchResult">
+        <li class="list-group-item ror-search-group-item" *ngFor="let addr of addresses" (click)="selectAddress(addr)">{{addr.formattedAddress}}</li>
+      </ul>
+    </ror-textbox>
+  </form>
+</div>

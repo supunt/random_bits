@@ -1,0 +1,16 @@
+<div class="notification-details" *ngIf="model != null">
+  <table [ngClass]="GetThemeClass()">
+    <tr>
+      <td class="rorc-t8" style="width:10%">Details:</td>
+      <td class="rorc-t8" style="width:55%">{{viewModel?.messageBody}}</td>
+      <td>
+        <ror-common-notificaion-buttons
+          [CloseEnabled]="true"
+          (notificationClosed)="Hide()"></ror-common-notificaion-buttons>
+      </td>
+    </tr>
+  </table>
+</div>
+<ng-container *ngIf="!loadingDetails && viewModel == null">
+    <ror-notification-loading-error></ror-notification-loading-error>
+  </ng-container>

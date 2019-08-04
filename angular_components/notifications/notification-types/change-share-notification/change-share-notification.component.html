@@ -1,0 +1,47 @@
+  <div class="notification-details" *ngIf="viewModel != null">
+      <table [ngClass]="GetThemeClass()">
+        <tr>
+          <td class="rorc-t8" style="width:10%">Details:</td>
+          <td class="rorc-t8" style="width:55%">
+            <!-- <p> Dear {{this.viewModel?.ownerName}} </p> -->
+            <p>               
+              <ng-container *ngIf="this.viewModel?.ownerRecordType==='Person'; else notPerson">
+                You are 
+            </ng-container>
+            <ng-template #notPerson>
+                {{this.viewModel?.ownerName}} is
+            </ng-template>            
+              nominated as changing share percentage in the current ownership of foobar             
+               {{this.viewModel?.foobarName}}
+                 from {{this.viewModel?.currentSharePercentage}}% to {{this.viewModel?.sharePercentage}}% effective {{this.viewModel?.effectiveDate}},
+                 by {{this.viewModel?.lodgedByName}}.
+            </p>
+          </td>
+          <td style="width:35%">
+            <ror-common-notificaion-buttons 
+              [CloseEnabled]="true"            
+              [AcceptEnabled]="model?.viewData?.status != 'COMPLETED'"
+              [DeclineEnabled]="model?.viewData?.status != 'COMPLETED'"
+              (notificationClosed)="Hide()"
+              (notificationActioned)="Actioned($event)">
+            </ror-common-notificaion-buttons>
+          </td>
+        </tr>
+        <tr class="rorc-t8" *ngIf="model?.viewData?.confirmationStatus=='ACCEPTED'">
+          <td colspan="3" class="text-right" >
+                Accepted On  {{ dateFromSimpleString(model?.viewData?.dateModified) | date:'dd/MM/yyyy'}}
+          </td>
+        </tr>
+        <tr class="rorc-t8" *ngIf="model?.viewData?.confirmationStatus=='DECLINED'">
+            <td colspan="3" class="text-right" >
+                  Declined On  {{dateFromSimpleString(model?.viewData?.dateModified) | date:'dd/MM/yyyy'}}
+            </td>
+          </tr>
+      </table>
+  </div>
+  <div *ngIf="loadingDetails">
+      Loading ...  <i  class="fa fa-spinner fa-spin ror-2fa-loading-spinner"></i>
+  </div>
+  <ng-container *ngIf="!loadingDetails && viewModel == null">
+    <ror-notification-loading-error></ror-notification-loading-error>
+  </ng-container>

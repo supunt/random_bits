@@ -1,0 +1,6 @@
+<div class="float-right">
+    <button class="rorc-button-tertiary rorc-t8 button-accept-blue-tick" *ngIf="AcceptEnabled" (click)="Actioned(true)">Accept</button>
+    <button class="rorc-button-tertiary rorc-t8 button-decline-blue-tick" *ngIf="DeclineEnabled" (click)="Actioned(false)">Decline</button>
+    <button class="rorc-button-primary-no-hover rorc-t8" *ngIf="CancelEnabled" (click)="Hide()">Cancel</button>
+    <button class="rorc-button-primary-no-hover rorc-t8" *ngIf="CloseEnabled" (click)="Hide()">Close</button>
+</div>

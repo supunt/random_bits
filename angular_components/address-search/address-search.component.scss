@@ -1,0 +1,31 @@
+// @import 'src/root';
+.ror-search-group {
+  background-color: white;
+  box-shadow: 0 4px 64px 0 rgba(black, 0.16);
+  position: absolute;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: scroll;
+  z-index: 2;
+  > .ror-search-group-item {
+    padding: 16px 16px;
+    border: none;
+    cursor: pointer;
+    &.label {
+    }
+    &.selected {
+      color: white;
+    }
+  }
+  > .ror-search-group-item:last-child {
+    background-size: 0;
+    background-image: none;
+  }
+}
+
+.ror-search-spinner {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  font-size: 16px;
+}
