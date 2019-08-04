@@ -17,5 +17,8 @@ What you see here is sample code snippets from my work. I cannot disclose the en
 4. random_js_bits_from_a_sandbox - this contains some simple code bits that I wrote while I was learning javascript. 
                                     This is a part of a sandbox for a SignalR client used by an MVC app that did something awesome
                                     https://github.com/supunt/randomJsBits
-
+5. dot_net_fw 
+    5.1 state-machine - A base class types of a state machine that was used to interact with data from TCP clients (i.e. Cameras, PLCs)
+    5.2 PLC - A plc client that was derived from the state machine
+    5.3 database - A DB connection manager ish, derived from the state machine running on it's own thread
 
