@@ -11,15 +11,22 @@ What you see here is sample code snippets from my work. I cannot disclose the en
 * two-factor-auth - a session state based 2 factor authentication system
 * google-map - component that intearcts with google geocoder api to get pin locations using an address we retrieved via address-search's api and render the map on screen (not impressive at all but was a cool learning experince)
 
-## dot_net_core_test
-* FileAnalyzer - This is a fun little project/test that I did during an interview cycle for a job. (all the stuff you see hear is learnt with in a 1 - 1.5 day period)
-                    https://github.com/supunt/CSVProcessor - has a better readme
+## dot_net_core_test - FileAnalyzer
 
-## QTFtpClient - This is an old project of mine that I did for an employer during my C++ days that never saw production or UAT
+This is a fun little project/test that I did during an interview cycle for a job. (all the stuff you see hear is learnt with in a 1 - 1.5 day period) 
 
-## random_js_bits_from_a_sandbox - this contains some simple code bits that I wrote while I was learning javascript. 
-                                    This is a part of a sandbox for a SignalR client used by an MVC app that did something awesome
-                                    https://github.com/supunt/randomJsBits
+https://github.com/supunt/CSVProcessor - has a better readme
+
+## QTFtpClient
+This is an old project of mine that I did for an employer during my C++ days that never saw production or UAT
+
+## random_js_bits_from_a_sandbox
+
+this contains some simple code bits that I wrote while I was LEARNING javascript. 
+This is a part of a sandbox for a SignalR client used by an MVC app that did something awesome
+https://github.com/supunt/randomJsBits
+
+
 ## dot_net_fw 
 * state-machine - A base class types of a state machine that was used to interact with data from TCP clients (i.e. Cameras, PLCs)
 * PLC - A plc client that was derived from the state machine
