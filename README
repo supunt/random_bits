@@ -1,6 +1,8 @@
+# Random Bits
+
 What you see here is sample code snippets from my work. I cannot disclose the entire code bases due to obvious reasons
 
-1. angular components
+## angular components
     1.1. address-search - A basic address search that interfaces with a 'sensis totalcheck api' wrapped in a .net Core back end
     1.2. component-modal - an angular modal in which you can render any angular component you desire
     1.3. notifications - A table of user notifications, when you click one it expands to the details in place where a component of base type NotificationBase is injected. 
@@ -8,17 +10,19 @@ What you see here is sample code snippets from my work. I cannot disclose the en
     1.4. two-factor-auth - a session state based 2 factor authentication system
     1.5. google-map - component that intearcts with google geocoder api to get pin locations using an address we retrieved via address-search's api and render the map on screen (not impressive at all but was a cool learning experince)
 
-2. dot_net_core_test
+## dot_net_core_test
     2.1. FileAnalyzer - This is a fun little project/test that I did during an interview cycle for a job. (all the stuff you see hear is learnt with in a 1 - 1.5 day period)
                         https://github.com/supunt/CSVProcessor - has a better readme
 
-3. QTFtpClient - This is an old project of mine that I did for an employer during my C++ days that never saw production or UAT
+## QTFtpClient - This is an old project of mine that I did for an employer during my C++ days that never saw production or UAT
 
-4. random_js_bits_from_a_sandbox - this contains some simple code bits that I wrote while I was learning javascript. 
+## random_js_bits_from_a_sandbox - this contains some simple code bits that I wrote while I was learning javascript. 
                                     This is a part of a sandbox for a SignalR client used by an MVC app that did something awesome
                                     https://github.com/supunt/randomJsBits
-5. dot_net_fw 
+## dot_net_fw 
     5.1 state-machine - A base class types of a state machine that was used to interact with data from TCP clients (i.e. Cameras, PLCs)
     5.2 PLC - A plc client that was derived from the state machine
     5.3 database - A DB connection manager ish, derived from the state machine running on it's own thread
 
+## An Angular project with Server Side Rendering and a express server
+   Also refer to https://github.com/supunt/angular_client_project for a 
