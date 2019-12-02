@@ -34,4 +34,4 @@ https://github.com/supunt/randomJsBits
 * HttpJsonUtilsEx - A Template helper that wraps HttpClient calls and send/receive result back and forth in template type
 
 ## An Angular project with Server Side Rendering and a express server
-* refer to https://github.com/supunt/angular_client_project
+* refer to https://github.com/supunt/angular-universal
