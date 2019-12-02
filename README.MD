@@ -31,6 +31,7 @@ https://github.com/supunt/randomJsBits
 * state-machine - A base class types of a state machine that was used to interact with data from TCP clients (i.e. Cameras, PLCs)
 * PLC - A plc client that was derived from the state machine
 * database - A DB connection manager ish, derived from the state machine running on it's own thread
+* HttpJsonUtilsEx - A Template helper that wraps HttpClient calls and send/receive result back and forth in template type
 
 ## An Angular project with Server Side Rendering and a express server
 * refer to https://github.com/supunt/angular_client_project
