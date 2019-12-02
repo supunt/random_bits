@@ -2,6 +2,14 @@
 
 What you see here is sample code snippets from my work. I cannot disclose the entire code bases due to obvious reasons
 
+## DistributedCubeProcessor
+
+This is a project done for a job interview. 
+The intent is that a data cube is handed to multiple process nodes. Each process node has a part of the data cube due to hardware limitations. 
+Nodes should talk to eachother and determine the median of the data cube
+
+This was done using muti-threaded approach 
+
 ## angular components ##
 
 * address-search - A basic address search that interfaces with a 'sensis totalcheck api' wrapped in a .net Core back end
