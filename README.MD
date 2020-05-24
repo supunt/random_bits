@@ -43,3 +43,6 @@ https://github.com/supunt/randomJsBits
 
 ## An Angular project with Server Side Rendering and a express server
 * refer to https://github.com/supunt/angular-universal
+
+## Digital Clock
+* A question by a fellow stackoverflow'er that I fixed (https://stackoverflow.com/questions/61979779/how-to-let-my-code-works-for-7-segment-digital-clock-in-javascript/61980381#61980381)
